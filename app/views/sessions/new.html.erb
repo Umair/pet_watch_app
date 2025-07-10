@@ -1,0 +1,22 @@
+<div style="max-width: 400px; margin: 40px auto; font-family: Arial, sans-serif;">
+  <h2 style="text-align: center; color: #2c3e50;">Log In</h2>
+  <% if flash[:alert] %>
+    <div style="color: #c0392b; margin-bottom: 15px; text-align: center;"> <%= flash[:alert] %> </div>
+  <% end %>
+  <%= form_with url: login_path, local: true do |f| %>
+    <div style="margin-bottom: 15px;">
+      <%= label_tag :email %><br>
+      <%= email_field_tag :email, params[:email], required: true, autofocus: true, style: 'width: 100%; padding: 8px;' %>
+    </div>
+    <div style="margin-bottom: 15px;">
+      <%= label_tag :password %><br>
+      <%= password_field_tag :password, nil, required: true, style: 'width: 100%; padding: 8px;' %>
+    </div>
+    <div style="text-align: center;">
+      <%= f.submit 'Log In', style: 'background: #2980b9; color: #fff; padding: 10px 24px; border: none; border-radius: 5px;' %>
+    </div>
+  <% end %>
+  <div style="text-align: center; margin-top: 20px;">
+    Don't have an account? <a href="/signup">Sign Up</a>
+  </div>
+</div> 

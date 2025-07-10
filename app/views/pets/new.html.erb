@@ -1,0 +1,26 @@
+<div style="max-width: 400px; margin: 40px auto; font-family: Arial, sans-serif;">
+  <h2 style="text-align: center; color: #2c3e50;">Add New Pet</h2>
+  <% if flash[:alert] %>
+    <div style="color: #c0392b; margin-bottom: 15px; text-align: center;"> <%= flash[:alert] %> </div>
+  <% end %>
+  <%= form_with model: @pet, url: pets_path, local: true do |f| %>
+    <div style="margin-bottom: 15px;">
+      <%= f.label :name %><br>
+      <%= f.text_field :name, required: true, autofocus: true, style: 'width: 100%; padding: 8px;' %>
+    </div>
+    <div style="margin-bottom: 15px;">
+      <%= f.label :breed %><br>
+      <%= f.text_field :breed, required: true, style: 'width: 100%; padding: 8px;' %>
+    </div>
+    <div style="margin-bottom: 15px;">
+      <%= f.label :age %><br>
+      <%= f.number_field :age, required: true, min: 0, style: 'width: 100%; padding: 8px;' %>
+    </div>
+    <div style="text-align: center;">
+      <%= f.submit 'Create Pet', style: 'background: #16a085; color: #fff; padding: 10px 24px; border: none; border-radius: 5px;' %>
+    </div>
+  <% end %>
+  <div style="text-align: center; margin-top: 20px;">
+    <a href="<%= pets_path %>">Back to My Pets</a>
+  </div>
+</div>

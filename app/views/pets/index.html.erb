@@ -1,0 +1,35 @@
+<div style="max-width: 600px; margin: 40px auto; font-family: Arial, sans-serif;">
+  <h2 style="text-align: center; color: #2c3e50;">My Pets</h2>
+  <% if flash[:notice] %>
+    <div style="color: #16a085; margin-bottom: 15px; text-align: center;"> <%= flash[:notice] %> </div>
+  <% end %>
+  <% if @pets.any? %>
+    <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+      <thead>
+        <tr style="background: #f3f3f3;">
+          <th style="padding: 8px; border: 1px solid #ddd;">Name</th>
+          <th style="padding: 8px; border: 1px solid #ddd;">Breed</th>
+          <th style="padding: 8px; border: 1px solid #ddd;">Age</th>
+          <th style="padding: 8px; border: 1px solid #ddd;">Vaccination Expired?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @pets.each do |pet| %>
+          <tr>
+            <td style="padding: 8px; border: 1px solid #ddd;"><%= pet.name %></td>
+            <td style="padding: 8px; border: 1px solid #ddd;"><%= pet.breed %></td>
+            <td style="padding: 8px; border: 1px solid #ddd;"><%= pet.age %></td>
+            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;">
+              <%= pet.vaccination_expired? ? 'Yes' : 'No' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <div style="text-align: center; color: #888;">You have no pets yet.</div>
+  <% end %>
+  <div style="text-align: center; margin-top: 20px;">
+    <a href="<%= new_pet_path %>" style="background: #16a085; color: #fff; padding: 10px 24px; border-radius: 5px; text-decoration: none;">Add New Pet</a>
+  </div>
+</div>

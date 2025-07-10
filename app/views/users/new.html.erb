@@ -1,0 +1,26 @@
+<div style="max-width: 400px; margin: 40px auto; font-family: Arial, sans-serif;">
+  <h2 style="text-align: center; color: #2c3e50;">Sign Up</h2>
+  <% if flash[:alert] %>
+    <div style="color: #c0392b; margin-bottom: 15px; text-align: center;"> <%= flash[:alert] %> </div>
+  <% end %>
+  <%= form_with model: @user, url: signup_path, local: true do |f| %>
+    <div style="margin-bottom: 15px;">
+      <%= f.label :email %><br>
+      <%= f.email_field :email, required: true, autofocus: true, style: 'width: 100%; padding: 8px;' %>
+    </div>
+    <div style="margin-bottom: 15px;">
+      <%= f.label :password %><br>
+      <%= f.password_field :password, required: true, style: 'width: 100%; padding: 8px;' %>
+    </div>
+    <div style="margin-bottom: 15px;">
+      <%= f.label :password_confirmation %><br>
+      <%= f.password_field :password_confirmation, required: true, style: 'width: 100%; padding: 8px;' %>
+    </div>
+    <div style="text-align: center;">
+      <%= f.submit 'Sign Up', style: 'background: #16a085; color: #fff; padding: 10px 24px; border: none; border-radius: 5px;' %>
+    </div>
+  <% end %>
+  <div style="text-align: center; margin-top: 20px;">
+    Already have an account? <a href="/login">Log In</a>
+  </div>
+</div> 

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pet Watch</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <!-- Removed stylesheet_link_tag to avoid missing asset error -->
+  </head>
+  <body style="background: #f7f7f7;">
+    <%= render 'layouts/header' %>
+    <%= yield %>
+  </body>
+</html> 
